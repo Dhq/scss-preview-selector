@@ -1,0 +1,40 @@
+{
+  "name": "Scss-selector-preview",
+  "version": "0.0.1",
+  "description": "See full generated css selector in scss",
+  "license": "MIT",
+  "repository": "",
+  "author": {
+    "name": "Daniel Hallqvist",
+    "email": "dhallqvist91@gmail.com",
+    "url": ""
+  },
+  "activationCommands": {
+    "atom-workspace": "scss-preview-selector"
+  },
+  "engines": {
+    "atom": ">=1.0.0"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "preview",
+    "selector"
+  ],
+  "dependencies": {
+    "node-sass": "^3.4.2",
+    "string": "^3.3.1"
+  },
+  "devDependencies": {
+    "xo": "*"
+  },
+  "xo": {
+    "esnext": true,
+    "globals": [
+      "atom"
+    ]
+  }
+}

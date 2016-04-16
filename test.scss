@@ -1,0 +1,20 @@
+.wrapper {
+			/*test*/
+				div /*!test2*/{
+								&:hover {
+												a .yolo + test {
+																display: flex;
+																color: red;
+																height: $var;
+												}
+								}
+
+								p {
+												width: 200px;
+
+												&:focus {
+																width: 399px;
+												}
+								}
+				}
+}
