@@ -1,7 +1,22 @@
+@import 'import';
+@mixin yolo($jaku, $bar) {
+	#body {
+		width: $body-width;
+			p {
+				color:red;
+			}
+	}
+}
+
 .wrapper {
 			/*test*/
 				div /*!test2*/{
+					position: absolute;
+					@extend .foo-bar;
 								&:hover {
+									@include test();
+									@include yolo();
+									width: 20px;
 												a .yolo + test {
 																display: flex;
 																color: red;

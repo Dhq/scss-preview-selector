@@ -26,10 +26,15 @@ function init() {
 	//Remove properties, only keep selectors
 	let input = buffer.cachedText;
 	let nextCurlyPos = input.indexOf('{', characterIndex);
+	let nextSemiColonPos = input.indexOf(';', characterIndex);
+	//Cursor is at a property, not supported atm
+	if(nextCurlyPos > nextSemiColonPos) return;
 	// let nextCurlyPos = input.indexOf('}', characterIndex);
 
 	/*ToDo: first remove all comments*/
 	let modifiedInput = input.splice(nextCurlyPos + 1, 0, currentSelectorLocator);
+	modifiedInput = modifiedInput.replace(/@include .*;/g, '');
+	modifiedInput = modifiedInput.replace(/@import .*;/g, '');
 	modifiedInput = modifiedInput.replace(/{/g, '{/* */');
 	modifiedInput = modifiedInput.replace(/[^{|\s]+:[^{|}]+;/ig, '');
 	console.log(modifiedInput);
