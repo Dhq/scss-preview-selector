@@ -20,43 +20,43 @@ function init() {
 
 	let markerPos = editor.getCursorBufferPosition();
 	let characterIndex = buffer.characterIndexForPosition(markerPos);
-	console.log('characterIndex', characterIndex);
-
 
 	//Remove properties, only keep selectors
 	let input = buffer.cachedText;
 	let nextCurlyPos = input.indexOf('{', characterIndex);
 	let nextSemiColonPos = input.indexOf(';', characterIndex);
 	//Cursor is at a property, not supported atm
-	if(nextCurlyPos > nextSemiColonPos) return;
-	// let nextCurlyPos = input.indexOf('}', characterIndex);
+	if (nextCurlyPos > nextSemiColonPos) return;
 
 	/*ToDo: first remove all comments*/
 	let modifiedInput = input.splice(nextCurlyPos + 1, 0, currentSelectorLocator);
 	modifiedInput = modifiedInput.replace(/@include .*;/g, '');
 	modifiedInput = modifiedInput.replace(/@import .*;/g, '');
-	modifiedInput = modifiedInput.replace(/{/g, '{/* */');
+
+	//Remove variable declarations
+	modifiedInput = modifiedInput.replace(/\$.+=.+;/g, '');
+	//Remove variables
+	modifiedInput = modifiedInput.replace(/\$[^ |;|)]+/g, '');
+
+	//Remove properties
 	modifiedInput = modifiedInput.replace(/[^{|\s]+:[^{|}]+;/ig, '');
 	console.log(modifiedInput);
 
 	/*Todo: async*/
-	let result = sass.renderSync({
-		data: modifiedInput,
-		outputStyle: 'expanded'
+	sass.render({
+			data: modifiedInput,
+			outputStyle: 'expanded'
+		}, (err, result) => {
+			if(err) {
+				atom.notifications.addError('Could not get full css selector.');
+			}
+			let resultString = result.css.toString('utf-8');
+			//Remove media queries for now
+			resultString = resultString.replace(/@media.*{/g, '');
+			let selector = resultString.match(/[^}]*\/\*scss-preview-current\*/);
+			atom.notifications.addInfo(selector[0].replace(/{[\s\S]*\/\*scss-preview-current\*/gmi, ''));
 	});
-	let resultString = result.css.toString('utf-8');
-	console.log(resultString);
-
-	let selector = resultString.match(/[^}]*\/\*scss-preview-current\*/)
-	console.log(selector[0].split('{')[0]);
-
-		// let currentSelectorIndex = resultString.indexOf(currentSelectorLocator);
-		// console.log('currentSelectorIndex', currentSelectorIndex);
-		// let between = S(resultString).between('}', currentSelectorIndex);
-		// 	console.log(between);
-		// 	console.log(between.s);
-
-	}
+};
 
 	export const activate = () => {
 		atom.commands.add('atom-workspace', 'scss-preview-selector', init);

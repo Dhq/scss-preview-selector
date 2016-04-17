@@ -21,7 +21,7 @@ Or, Settings → Install → Search for `autoprefixer` -->
 ## Current limitations
 - You have to have the marker on the selector. Having it on a property will not be able to show the property's selector.
 - Selectors containing variables from other files wont work.
-- If the file is being imported and the import statement is wrapped in a selector, it wont be recognized by this plugin.
+- If the file is being imported in another file and the import statement is wrapped in a selector, it wont be recognized by this plugin.
 
 
 ## License

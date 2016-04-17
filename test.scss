@@ -1,35 +1,48 @@
 @import 'import';
-@mixin yolo($jaku, $bar) {
-	#body {
-		width: $body-width;
-			p {
-				color:red;
-			}
-	}
+$test = 12 / 2 * 4;
+@mixin foo($za, $bar) {
+  #body {
+    width: $body-width;
+    p {
+      color: red;
+    }
+  }
 }
-
+/*Test*/
 .wrapper {
-			/*test*/
-				div /*!test2*/{
-					position: absolute;
-					@extend .foo-bar;
-								&:hover {
-									@include test();
-									@include yolo();
-									width: 20px;
-												a .yolo + test {
-																display: flex;
-																color: red;
-																height: $var;
-												}
-								}
+  /*!test2*/
+  div {
+    position: absolute;
+    @extend .foo-bar;
 
-								p {
-												width: 200px;
+    &:hover {
+      @include test();
+      @include foobar();
+      width: 20px;
 
-												&:focus {
-																width: 399px;
-												}
-								}
-				}
+      a .class + test {
+        display: flex;
+        color: red;
+        height: $var;
+      }
+    }
+    /*Test
+sadasd as asd as
+as das asd ad  sa d*/
+    p {
+      width: 200px;
+      @media (max-width: $ml-viewport) {
+        height: 29px;
+      }
+
+      &:focus {
+        width: 399px;
+        @media (max-width: $ml-viewport) {
+          span {
+            height: 10px;
+          }
+        }
+      }
+    }
+  }
 }
