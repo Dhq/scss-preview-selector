@@ -1,6 +1,6 @@
 # Scss-preview-selector (Not ready)
 
-> Atom package to preview the full css selector generated from a scss selector
+> Atom package to preview the full css selector generated from a scss selector. Your friend in the nesting-hell-abyss of all too many scss files.
 
 
 ## Install
@@ -13,9 +13,9 @@ Or, Settings → Install → Search for `scss-preview-selector`
 
 
 ## Usage
-- While having the marker on a selector in a scss file, open the Command Palette and type `scss preview selector` or use the default keybinding `cmd+shift+s`.
+- While having the marker on a selector in a scss file, open the Command Palette and type `scss preview selector` or use the default keybinding `ctrl+shift+s`.
 
-	<!-- ![](https://f.cloud.github.com/assets/1223565/2284892/51b999b2-9fce-11e3-9e9d-5e6a9cb4e933.gif) -->
+	![](https://cloud.githubusercontent.com/assets/1615161/14589998/e8c17932-04ef-11e6-9b74-f8c449a393a1.gif)
 
 
 ## Current limitations
