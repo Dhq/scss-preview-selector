@@ -10,7 +10,7 @@
     "url": ""
   },
   "activationCommands": {
-    "atom-workspace": "scss-preview-selector"
+    "atom-workspace": "scss-preview-selector:run"
   },
   "engines": {
     "atom": ">=1.0.0"
@@ -25,8 +25,7 @@
     "selector"
   ],
   "dependencies": {
-    "node-sass": "^3.4.2",
-    "string": "^3.3.1"
+    "node-sass": "^3.4.2"
   },
   "devDependencies": {
     "xo": "*"

@@ -1,0 +1,2 @@
+'.workspace .editor':
+  'ctrl-shift-s': 'scss-preview-selector:run'

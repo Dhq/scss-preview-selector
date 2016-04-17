@@ -3,13 +3,13 @@
 > Atom package to preview the full css selector generated from a scss selector
 
 
-<!-- ## Install
+## Install
 
 ```
-$ apm install autoprefixer
+$ apm install scss-preview-selector
 ```
 
-Or, Settings → Install → Search for `autoprefixer` -->
+Or, Settings → Install → Search for `scss-preview-selector`
 
 
 ## Usage
@@ -19,9 +19,10 @@ Or, Settings → Install → Search for `autoprefixer` -->
 
 
 ## Current limitations
+- Media queries will not be included in the resulting selector
 - You have to have the marker on the selector. Having it on a property will not be able to show the property's selector.
 - Selectors containing variables from other files wont work.
-- If the file is being imported in another file and the import statement is wrapped in a selector, it wont be recognized by this plugin.
+- If the file is being imported in another file and the import statement is wrapped in a selector, it wont be recognized.
 
 
 ## License
